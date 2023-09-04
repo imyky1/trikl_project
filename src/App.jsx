@@ -3,29 +3,19 @@ import axios from 'axios';
 import './App.css';
 import ImageDisplay from './imagedisplay';
 import TextOverlay from './textoverlay';
-import config from '../config';
+// import config from '../config/config';
+// const config = require('../config/config')
 // const apiKey = process.env.REACT_APP_API_KEY;
 
 function App() {
-  const apiKey = config.apiKey;
+  // const apiKey = process.env.REACT_APP_API_KEY;
   const [imageUrl, setImageUrl] = useState('');
   const [text, setText] = useState('');
   const [textOverlays, setTextOverlays] = useState([]);
   const [position, setPosition] = useState({ top: 0, left: 0 });
 
   useEffect(() => {
-    // Fetch an image from the Unsplash API when the component mounts
-    const fetchImage = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.unsplash.com/photos/random?client_id=${apiKey}`
-        );
-        setImageUrl(response.data.urls.regular);
-      } catch (error) {
-        console.error('Error fetching image:', error);
-      }
-    };
-    fetchImage();
+        setImageUrl('https://source.unsplash.com/random');
   }, []);
 
   const handleAddText = () => {
